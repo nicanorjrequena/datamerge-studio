@@ -1,0 +1,10 @@
+[theme]
+primaryColor = "#087f78"
+backgroundColor = "#f7f9fc"
+secondaryBackgroundColor = "#eaf0f6"
+textColor = "#172b41"
+font = "sans serif"
+[server]
+# Streamlit requires a finite integer; use its protobuf int32 ceiling in MB
+# so application policy imposes no practical file-size restriction.
+maxUploadSize = 2147483647

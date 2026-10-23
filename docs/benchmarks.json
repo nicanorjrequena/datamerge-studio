@@ -1,0 +1,31 @@
+{
+  "python": "3.11.9",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "scope": "In-memory engine only; excludes file loading and downloads. Tracemalloc measures Python allocations, not total process memory.",
+  "results": [
+    {
+      "files": 2,
+      "input_rows": 1000,
+      "output_rows": 1000,
+      "seconds": 0.0468,
+      "peak_traced_mb": 0.46,
+      "exceptions": 0
+    },
+    {
+      "files": 2,
+      "input_rows": 10000,
+      "output_rows": 10000,
+      "seconds": 0.1336,
+      "peak_traced_mb": 3.67,
+      "exceptions": 0
+    },
+    {
+      "files": 2,
+      "input_rows": 100000,
+      "output_rows": 100000,
+      "seconds": 1.003,
+      "peak_traced_mb": 35.73,
+      "exceptions": 0
+    }
+  ]
+}

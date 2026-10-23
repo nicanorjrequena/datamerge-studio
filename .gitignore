@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+.pytest_cache/
+Sample Data/
+*.log
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+*.pem
+*.key
+dist/
+release/
