@@ -10,7 +10,7 @@ python -m venv .venv
 .\.venv\Scripts\python -m streamlit run app.py
 ```
 
-Open http://localhost:8501. The application has not been deployed publicly.
+Open http://localhost:8501. Source code: [nicanorjrequena/datamerge-studio](https://github.com/nicanorjrequena/datamerge-studio). The application itself has not been deployed publicly.
 
 ## Try the two-minute demonstration
 
@@ -52,4 +52,4 @@ Synthetic port reports under `data/demo` are regression fixtures, not automatic 
 
 ## Deployment handoff
 
-See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for GitHub and Streamlit Community Cloud steps and the hosted acceptance checklist. Publishing is in progress; no live URL has been verified. Repository ownership, authenticated publishing access, and public deployment still need to be confirmed.
+The source is published at [nicanorjrequena/datamerge-studio](https://github.com/nicanorjrequena/datamerge-studio) on branch `main`. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for Streamlit Community Cloud steps and the hosted acceptance checklist. No live application URL has been verified. Screenshots and hosted browser acceptance testing remain pending.

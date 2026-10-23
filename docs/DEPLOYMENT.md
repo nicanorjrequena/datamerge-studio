@@ -1,6 +1,6 @@
 # Publishing handoff
 
-Status: local prototype; GitHub upload and public deployment have not yet been verified. Use the current simplified workflow rather than earlier feature plans.
+Status: source published at https://github.com/nicanorjrequena/datamerge-studio on branch `main`; public application deployment has not yet been verified. Use the current simplified workflow rather than earlier feature plans.
 
 ## GitHub
 
