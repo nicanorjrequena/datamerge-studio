@@ -16,7 +16,7 @@ Open http://localhost:8501 for local development. Source code: [nicanorjrequena/
 
 ## Try the two-minute demonstration
 
-Upload the two synthetic CSV files in [data/recruiter_demo](data/recruiter_demo). Follow the short workflow there to match order-number headers, drop Internal Note, and export five records with four columns. The [verified expected CSV](docs/examples/recruiter-master.csv) is included for comparison. No demonstration files load automatically.
+Upload your own non-confidential CSV/Excel files. Review their previews, match equivalent headers, optionally drop a column, and export. No datasets are included in the repository or loaded automatically. The tests generate controlled synthetic inputs in memory.
 
 ## Current workflow
 
@@ -50,7 +50,7 @@ See [test results](docs/test_results.md) and [architecture](docs/architecture.md
 
 The current release candidate passes **62 automated tests**. Direct dependencies are pinned to the locally verified versions in `requirements.txt`.
 
-Synthetic port reports under `data/demo` are regression fixtures, not automatic application defaults. Local `Sample Data` remains excluded from Git. No employer data is required.
+Local `data/`, `Sample Data/`, generated examples, CSV/Excel files, Parquet files, and ZIP archives are excluded from Git. Tests generate synthetic inputs in memory and do not require local datasets. No employer data is required. Dataset files included in earlier commits remain in Git history; the exclusion policy applies to the current branch and future commits.
 
 ## Deployment handoff
 

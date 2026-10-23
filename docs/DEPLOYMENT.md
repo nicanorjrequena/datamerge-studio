@@ -15,8 +15,8 @@ Status: source published at https://github.com/nicanorjrequena/datamerge-studio 
 2. Create an app from that repository and branch, with `app.py` as the entry point.
 3. Use Python 3.11 and install the tested versions in `requirements.txt`. No database or app secrets are required.
 4. Deploy and inspect the build/startup logs. Record the actual public URL only after it opens successfully.
-5. In a fresh browser session, follow `data/recruiter_demo/README.md`: upload both CSVs, review source previews, match the two order headers, drop Internal Note, and export.
-6. Open both downloaded formats and verify five records, four columns, and quantity total 455.
+5. In a fresh browser session, upload non-confidential test CSVs, review source previews, match equivalent headers, optionally drop a column, and export. Test datasets are intentionally excluded from the repository.
+6. Open both downloaded formats and compare actual row counts, output columns, and values with your known test inputs.
 7. Verify duplicate uploads block export, Back/Undo work, a multi-sheet workbook can be selected, and the layout is usable on desktop and mobile.
 8. Add the verified live link and real screenshots to the README. Do not describe deployment as complete before these checks pass.
 

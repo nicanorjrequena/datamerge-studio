@@ -51,7 +51,11 @@ def test_mapping_priority_and_rejection():
 
 def demo():
     config = example_config()
-    sources = [load(p.read_bytes(), p.name) for p in sorted(Path('data/demo').glob('*.csv'))]
+    fixtures = [
+        ('01_mobile.csv', b'Vessel Name,Port,Arrival Date,Cargo Weight,Status\nAtlantic Star,Mobile,2026-09-01,12500,Arrived\nOcean Pearl,Mobile,2026-09-02,8400,Arrived\nBlue Horizon,Mobile,2026-09-03,6200,Expected'),
+        ('02_houston.csv', b'Vessel,Port,ETA,Tonnes,Status\nPacific Dawn,Houston,2026-09-04,9800,Arrived\nCoral Wind,Houston,check date,4500,Expected\nSilver Tide,Houston,2026-09-06,7100,Expected'),
+        ('03_new_orleans.csv', b'Ship Name,Port,Arrival Date,Cargo Weight\nNorth Star,New Orleans,2026-09-07,11300\nRiver Queen,New Orleans,2026-09-08,5600\nRiver Queen,New Orleans,2026-09-08,5600')]
+    sources = [load(content, name) for name, content in fixtures]
     mappings = {s.name: {h: propose(h, config)[0] for h in s.frame.columns} for s in sources}
     return sources, config, mappings
 

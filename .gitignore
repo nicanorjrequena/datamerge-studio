@@ -11,3 +11,10 @@ Sample Data/
 *.key
 dist/
 release/
+data/
+docs/examples/
+*.csv
+*.xlsx
+*.xls
+*.parquet
+*.zip

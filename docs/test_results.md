@@ -20,7 +20,7 @@ The reduced workflow tests verify:
 - Explicit equivalent-name matching, retaining the chosen name, column dropping, and undo preserve original data, duplicate records, and all input rows. CSV and Excel are reopened and checked for expected edited values.
 - Matching coexisting fields, dropping all output columns, and invalid selections are blocked without mutating sources or applying history.
 - Next/Back navigation preserves edits; worksheet selection persists and controls the output. Changing selected sheets clears prior edits. Single-sheet files need no sheet checklist; empty/invalid selections block processing.
-- The recruiter demo has 2 synthetic CSVs, 5 input/output rows, 4 columns after matching and dropping, and quantity total 455. Its checked-in expected master CSV is compared with the actual engine result.
+- An in-memory demo uses 2 synthetic CSV inputs, 5 input/output rows, 4 columns after matching and dropping, and quantity total 455. Its in-memory expected table is compared with the actual engine result. No on-disk datasets are required by tests.
 
 Release inspection corrected an intermittent fixture issue: the worksheet-selection UI test now uses fixed Excel bytes on every rerun. Recreating a ZIP-based workbook each rerun could change its timestamps and incorrectly simulate a new upload. Production file fingerprint behavior remains unchanged.
 
