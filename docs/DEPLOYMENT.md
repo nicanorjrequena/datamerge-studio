@@ -1,6 +1,6 @@
 # Publishing handoff
 
-Status: source published at https://github.com/nicanorjrequena/datamerge-studio on branch `main`; public application deployment has not yet been verified. Use the current simplified workflow rather than earlier feature plans.
+Status: source published at https://github.com/nicanorjrequena/datamerge-studio on branch `main`. Hosted URL: https://datamerge-studio-foargqfdcmighktrnyvpca.streamlit.app/ . An HTTP session confirmed status 200 and the Streamlit page on October 22, 2026. This verifies endpoint reachability, not Python application execution or the interactive upload/download journey. Hosted browser acceptance testing remains pending. Use the current simplified workflow rather than earlier feature plans.
 
 ## GitHub
 

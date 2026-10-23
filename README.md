@@ -10,7 +10,9 @@ python -m venv .venv
 .\.venv\Scripts\python -m streamlit run app.py
 ```
 
-Open http://localhost:8501. Source code: [nicanorjrequena/datamerge-studio](https://github.com/nicanorjrequena/datamerge-studio). The application itself has not been deployed publicly.
+Open http://localhost:8501 for local development. Source code: [nicanorjrequena/datamerge-studio](https://github.com/nicanorjrequena/datamerge-studio).
+
+**Live app:** [Open DataMerge Studio](https://datamerge-studio-foargqfdcmighktrnyvpca.streamlit.app/). The hosted URL returns HTTP 200 and serves the Streamlit page; interactive hosted acceptance testing remains pending.
 
 ## Try the two-minute demonstration
 
@@ -52,4 +54,4 @@ Synthetic port reports under `data/demo` are regression fixtures, not automatic 
 
 ## Deployment handoff
 
-The source is published at [nicanorjrequena/datamerge-studio](https://github.com/nicanorjrequena/datamerge-studio) on branch `main`. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for Streamlit Community Cloud steps and the hosted acceptance checklist. No live application URL has been verified. Screenshots and hosted browser acceptance testing remain pending.
+The source is published at [nicanorjrequena/datamerge-studio](https://github.com/nicanorjrequena/datamerge-studio) on branch `main`. The live app URL above is reachable. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for the hosted acceptance checklist. Screenshots and interactive hosted browser acceptance testing remain pending.
