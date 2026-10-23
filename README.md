@@ -20,7 +20,7 @@ Upload the two synthetic CSV files in [data/recruiter_demo](data/recruiter_demo)
 
 ## Current workflow
 
-1. **Upload:** Add up to 10 CSV/XLSX files. A single-sheet workbook needs no extra decision; for multi-sheet workbooks, expand the worksheet checklist to choose what to include (all are selected initially). Remove or replace files using the uploader. Click **Next: Review data**.
+1. **Upload:** Add up to 10 CSV/XLSX files. **Clear data**, above the uploader, removes all uploaded files, worksheet selections, and column edits from the current session. A single-sheet workbook needs no extra decision; for multi-sheet workbooks, expand the worksheet checklist to choose what to include (all are selected initially). Remove or replace individual files using the uploader. Click **Next: Review data**.
 2. **Data Mapping / Review:** Expand a file to preview its first 10 records; Excel has a separate collapsed preview for each selected worksheet. All panels start closed. The output preview shows the result below. Optionally expand **Match or drop columns**, select equivalent names, choose the name to keep, and click **Treat as the same column**. Select unwanted fields and click **Drop column** to omit them from output. **Undo last change** reverses the last action. Click **Next: Export**.
 3. **Export:** Choose CSV or Excel and download the consolidated file. Excel contains one Master worksheet.
 
@@ -48,7 +48,7 @@ Matching changes only the output: it never modifies source files or concatenates
 
 See [test results](docs/test_results.md) and [architecture](docs/architecture.md). Historical benchmark artifacts measure an earlier engine workflow and are not current application performance claims.
 
-The current release candidate passes **61 automated tests**. Direct dependencies are pinned to the locally verified versions in `requirements.txt`.
+The current release candidate passes **62 automated tests**. Direct dependencies are pinned to the locally verified versions in `requirements.txt`.
 
 Synthetic port reports under `data/demo` are regression fixtures, not automatic application defaults. Local `Sample Data` remains excluded from Git. No employer data is required.
 

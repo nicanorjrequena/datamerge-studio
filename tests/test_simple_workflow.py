@@ -57,7 +57,8 @@ def test_minimal_empty_interface():
     assert not app.exception
     assert app.radio[0].value == 'Upload'
     assert not app.session_state.selected_inputs
-    assert not app.button and not app.multiselect and not app.selectbox
+    assert [b.label for b in app.button] == ['Clear data']
+    assert not app.multiselect and not app.selectbox
     app.radio[0].set_value('Data Mapping').run()
     assert not app.exception and not app.dataframe
     assert not app.text_input and not app.multiselect and not app.selectbox
@@ -145,3 +146,32 @@ with patch('streamlit.file_uploader', return_value=[data]):
     assert [e.label for e in app.expander] == ['book.xlsx', 'One', 'Two', 'Match or drop columns']
     assert all(not e.proto.expanded for e in app.expander)
     assert [len(d.value) for d in app.dataframe] == [2, 1, 3]
+
+
+def test_clear_data_resets_uploader_and_all_derived_state():
+    script = '''
+from unittest.mock import patch
+from io import BytesIO
+import runpy
+data = BytesIO(b'ID,Value\\n1,10'); data.name = 'test.csv'
+with patch('streamlit.file_uploader', side_effect=lambda *a, **k: [data] if k.get('key') == 'datasets-0' else []):
+    runpy.run_path('app.py', run_name='__main__')
+'''
+    app = AppTest.from_string(script, default_timeout=15).run()
+    assert len(app.session_state.selected_inputs) == 1
+    app.radio[0].set_value('Data Mapping').run()
+    next(m for m in app.multiselect if m.label == 'Columns to drop').set_value(['Value']).run()
+    next(b for b in app.button if b.label == 'Drop column').click().run()
+    assert app.session_state.column_changes
+    app.radio[0].set_value('Upload').run()
+    app.session_state.sheet_choices = {'old-file': ['Old Sheet']}
+    next(b for b in app.button if b.label == 'Clear data').click().run()
+    assert not app.exception and not app.error
+    assert not app.session_state.selected_inputs
+    assert not app.session_state.column_changes
+    assert not app.session_state.sheet_choices
+    assert app.session_state.upload_revision == 1
+    assert 'input_signature' not in app.session_state
+    assert app.radio[0].value == 'Upload'
+    app.radio[0].set_value('Export').run()
+    assert not app.get('download_button')

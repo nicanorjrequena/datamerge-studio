@@ -43,6 +43,16 @@ if st.session_state.get('workspace_revision') != 3:
 st.session_state.setdefault('column_changes', [])
 st.session_state.setdefault('sheet_choices', {})
 st.session_state.setdefault('edit_revision', 0)
+st.session_state.setdefault('upload_revision', 0)
+upload_key = f'datasets-{st.session_state.upload_revision}'
+
+
+def clear_data() -> None:
+    """Reset this user's uploaded files and all derived session state."""
+    next_upload = st.session_state.upload_revision + 1
+    st.session_state.clear()
+    st.session_state.update(workspace_revision=3, selected_inputs=[],
+                            upload_revision=next_upload, workspace_page='Upload')
 
 
 def navigate(page: str) -> None:
@@ -80,7 +90,8 @@ if section != 'Upload':
 
 if section == 'Upload':
     st.header('Upload files')
-    uploads = st.file_uploader('Choose CSV or Excel files', type=['csv', 'xlsx'], accept_multiple_files=True, key='datasets')
+    st.button('Clear data', on_click=clear_data, help='Remove uploaded files, worksheet selections, and column changes from this session.')
+    uploads = st.file_uploader('Choose CSV or Excel files', type=['csv', 'xlsx'], accept_multiple_files=True, key=upload_key)
     st.session_state.selected_inputs = [(f.name, f.getvalue()) for f in uploads]
     st.caption('Up to 10 files. Excel worksheets are included by default; expand a workbook below to choose sheets. Use non-confidential data.')
     for name, content in st.session_state.selected_inputs:
@@ -98,8 +109,8 @@ if section == 'Upload':
             except Exception:
                 pass  # Shared inspection below reports file-specific failures.
 else:
-    if 'datasets' in st.session_state:
-        st.session_state.datasets = st.session_state.datasets
+    if upload_key in st.session_state:
+        st.session_state[upload_key] = st.session_state[upload_key]
 
 inputs = st.session_state.selected_inputs
 if not inputs:

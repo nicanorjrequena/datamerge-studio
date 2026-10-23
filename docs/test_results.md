@@ -2,7 +2,7 @@
 
 Command: `.venv/Scripts/python -m pytest -q`
 
-Result: **61 passed** locally on Python 3.11.9. `python -m pip check` also reports no broken requirements. Direct dependencies are pinned to Streamlit 1.66.1, Pandas 2.3.3, OpenPyXL 3.1.5, and Pytest 9.1.1.
+Result: **62 passed** locally on Python 3.11.9. The publishing check's `python -m pip check` reported no broken requirements. Direct dependencies are pinned to Streamlit 1.66.1, Pandas 2.3.3, OpenPyXL 3.1.5, and Pytest 9.1.1.
 
 The reduced workflow tests verify:
 
@@ -15,6 +15,7 @@ The reduced workflow tests verify:
 - CSV and single-Master-sheet Excel outputs can be reopened with the expected records.
 - Excel formula-like text remains text; oversized Excel output prompts use of CSV.
 - Uploaded inputs persist when navigating between sections.
+- Clear data resets uploaded inputs, uploader identity, worksheet choices, column edits, and the input fingerprint; navigating to Export after clearing offers no stale download.
 - Duplicate filenames are flagged case-insensitively; renamed byte-identical uploads are flagged with both filenames, and export is blocked. Duplicate data records within legitimate inputs remain preserved.
 - Explicit equivalent-name matching, retaining the chosen name, column dropping, and undo preserve original data, duplicate records, and all input rows. CSV and Excel are reopened and checked for expected edited values.
 - Matching coexisting fields, dropping all output columns, and invalid selections are blocked without mutating sources or applying history.
